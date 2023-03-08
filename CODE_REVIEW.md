@@ -23,9 +23,9 @@ INSTALLED_APPS = [
 ]
 ```
 
-## vacancies.views
+## `vacancies.views`
 1. вместо try-except с raise Http404 можно использовать `get_object_or_404` из `django.shortcuts`,
-таким образом не пишем то, что уже есть, но если бы этого не было в django, 
+таким образом не пишем то, что уже есть, но если бы этого не было в django,
 я бы посоветовал написать свою реализацию этой функции, она не сложная,
 но при этом не будет дублирования кода.
 2. если используете try-except лучше указывать конкретные исключения,
@@ -46,7 +46,7 @@ company.vacancies.filter(salary=...)
 тогда это принято называть view set (`job_viewset` / `JobViewSet`), но тогда название сущности в единственном числе.
 это не является ошибкой, просто так принято в обществе разработчиков.
 
-## vacancies.models
+## `vacancies.models`
 1. id поле уже есть по умолчанию, в задании не сказано его изменять:
 ```python
 from django.db import models
@@ -62,7 +62,7 @@ models.IntegerField(primary_key=True)
 2. проверьте название полей у моделей, сравните с тем, что просят в задании.(предоставленные мок-данные jobs хранят поле
 posted, что некорректно, либо в задании надо менять название, либо в мок-данных)
 
-## vacancies.management.commands.data_to_sql
+## `vacancies.management.commands.data_to_sql`
 1. библиотека dotmap - лишняя, можно обойтись распаковкой python, (*args, **kwargs, в данном случае **kwargs)
 ```python
 # with DotMap
